@@ -1,10 +1,11 @@
 
 import { useState, useEffect } from 'react';
-import { Moon, Sun, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Moon, Sun, Github, Linkedin, Mail, ExternalLink, Code, Smartphone, Zap, Users, Award, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // Check for saved theme preference or default to dark
@@ -15,6 +16,14 @@ const Index = () => {
       setIsDark(true);
       document.documentElement.classList.add('dark');
     }
+
+    // Handle scroll effect for navbar
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -29,22 +38,38 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-500">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900 transition-all duration-700">
+      {/* Animated background elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-lg' 
+          : 'bg-transparent'
+      }`}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Portfolio
+          <div className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+            ReactNativeDev
           </div>
           
           <div className="hidden md:flex space-x-8">
-            {['about', 'projects', 'blog', 'contact'].map((section) => (
+            {[
+              { name: 'about', icon: Users },
+              { name: 'projects', icon: Code },
+              { name: 'blog', icon: Award },
+              { name: 'contact', icon: Mail }
+            ].map(({ name, icon: Icon }) => (
               <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 capitalize"
+                key={name}
+                onClick={() => scrollToSection(name)}
+                className="group flex items-center space-x-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 capitalize"
               >
-                {section}
+                <Icon className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">{name}</span>
               </button>
             ))}
           </div>
@@ -53,40 +78,81 @@ const Index = () => {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className="hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="relative hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-110"
           >
-            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <div className="relative">
+              {isDark ? (
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all duration-500" />
+              ) : (
+                <Moon className="h-5 w-5 rotate-0 scale-100 transition-all duration-500" />
+              )}
+            </div>
           </Button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 pt-16">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="min-h-screen flex items-center justify-center px-6 pt-16 relative">
+        <div className="max-w-5xl mx-auto text-center relative z-10">
           <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-              React Native Developer
+            {/* Status Badge */}
+            <div className="inline-flex items-center px-4 py-2 mb-6 bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+              <span className="text-sm font-medium text-green-700 dark:text-green-300">Available for Projects</span>
+            </div>
+
+            <h1 className="text-6xl md:text-8xl font-extrabold mb-8 bg-gradient-to-r from-slate-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent leading-tight">
+              React Native
+              <br />
+              <span className="bg-gradient-to-r from-purple-600 to-teal-600 bg-clip-text text-transparent">Developer</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Mobile App Developer & Cross-Platform Expert
+            
+            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-medium">
+              Crafting exceptional mobile experiences with modern cross-platform technology
             </p>
-            <p className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-              I build high-performance mobile applications with React Native, creating seamless 
-              experiences across iOS and Android platforms with clean, maintainable code.
+            
+            <p className="text-lg text-slate-500 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+              I specialize in building high-performance, scalable mobile applications using React Native, 
+              delivering native-quality experiences across iOS and Android platforms with clean, maintainable code.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-2xl mx-auto">
+              {[
+                { number: '4+', label: 'Years Experience' },
+                { number: '50+', label: 'Apps Built' },
+                { number: '99%', label: 'Client Satisfaction' },
+                { number: '24/7', label: 'Support' }
+              ].map((stat, index) => (
+                <div key={index} className="text-center p-4 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stat.number}</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
                 onClick={() => scrollToSection('projects')}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+                className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl font-semibold"
               >
+                <Smartphone className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
                 View My Apps
               </Button>
               <Button 
                 variant="outline" 
                 onClick={() => scrollToSection('contact')}
-                className="border-2 border-gray-300 dark:border-gray-600 px-8 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300"
+                className="group border-2 border-slate-300 dark:border-slate-600 px-8 py-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 font-semibold"
               >
+                <Mail className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 Get In Touch
+              </Button>
+              <Button 
+                variant="ghost"
+                className="group text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 font-semibold"
+              >
+                <Download className="mr-2 h-5 w-5 group-hover:bounce transition-transform" />
+                Download CV
               </Button>
             </div>
           </div>
@@ -94,98 +160,143 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6">
+      <section id="about" className="py-24 px-6 relative">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900 dark:text-white">
               About Me
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+              Passionate about creating mobile solutions that make a difference
+            </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                With over 4 years of experience in React Native development, I specialize in 
-                creating cross-platform mobile applications that deliver native performance 
-                and exceptional user experiences.
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                My journey in mobile development started with native iOS and Android, but I found 
-                my passion in React Native's ability to bridge the gap between platforms while 
-                maintaining code efficiency and rapid development cycles.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {['React Native', 'TypeScript', 'Expo', 'Firebase', 'Redux', 'Native Modules'].map((skill) => (
-                  <span 
-                    key={skill}
-                    className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300"
-                  >
-                    {skill}
-                  </span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                  With over 4 years of experience in React Native development, I specialize in 
+                  creating cross-platform mobile applications that deliver native performance 
+                  and exceptional user experiences.
+                </p>
+                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                  My journey in mobile development started with native iOS and Android, but I found 
+                  my passion in React Native's ability to bridge the gap between platforms while 
+                  maintaining code efficiency and rapid development cycles.
+                </p>
+              </div>
+
+              {/* Key strengths */}
+              <div className="grid md:grid-cols-2 gap-4">
+                {[
+                  { icon: Zap, title: 'Fast Development', desc: 'Rapid prototyping & delivery' },
+                  { icon: Code, title: 'Clean Code', desc: 'Maintainable & scalable' },
+                  { icon: Smartphone, title: 'Cross Platform', desc: 'iOS & Android expertise' },
+                  { icon: Users, title: 'User Focused', desc: 'Exceptional UX design' }
+                ].map(({ icon: Icon, title, desc }, index) => (
+                  <div key={index} className="group p-4 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-200/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:scale-105">
+                    <Icon className="h-8 w-8 text-blue-600 dark:text-blue-400 mb-3 group-hover:scale-110 transition-transform" />
+                    <h4 className="font-semibold text-slate-900 dark:text-white mb-1">{title}</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">{desc}</p>
+                  </div>
                 ))}
               </div>
+
+              {/* Skills */}
+              <div>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">Core Technologies</h3>
+                <div className="flex flex-wrap gap-3">
+                  {['React Native', 'TypeScript', 'Expo', 'Firebase', 'Redux Toolkit', 'Native Modules', 'GraphQL', 'Jest'].map((skill) => (
+                    <span 
+                      key={skill}
+                      className="px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 border border-blue-200/50 dark:border-blue-700/50 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:scale-105 transition-transform cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="relative">
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl shadow-2xl"></div>
+
+            <div className="relative lg:pl-8">
+              <div className="relative">
+                <div className="w-full h-96 bg-gradient-to-br from-blue-400 via-purple-500 to-teal-500 rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"></div>
+                <div className="absolute inset-4 bg-gradient-to-br from-slate-900 to-slate-700 rounded-2xl flex items-center justify-center">
+                  <Code className="h-24 w-24 text-white opacity-80" />
+                </div>
+                {/* Floating elements */}
+                <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full animate-bounce delay-300"></div>
+                <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-br from-pink-400 to-red-500 rounded-full animate-pulse"></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+      <section id="projects" className="py-24 px-6 bg-gradient-to-br from-slate-50/50 to-blue-50/50 dark:from-slate-800/30 dark:to-indigo-900/30 relative">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-              Mobile Apps
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900 dark:text-white">
+              Featured Apps
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+              Showcase of mobile applications built with cutting-edge technology
+            </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 title: "E-Commerce Mobile App",
-                description: "Cross-platform shopping app with secure payments and real-time inventory",
-                tech: ["React Native", "Stripe", "Firebase"]
+                description: "Full-featured shopping app with secure payments, real-time inventory, and personalized recommendations",
+                tech: ["React Native", "Stripe", "Firebase", "Redux"],
+                gradient: "from-blue-500 to-cyan-500",
+                icon: "🛒"
               },
               {
                 title: "Fitness Tracking App",
-                description: "Health monitoring app with workout plans and progress tracking",
-                tech: ["Expo", "HealthKit", "Redux Toolkit"]
+                description: "Comprehensive health monitoring with workout plans, progress tracking, and social features",
+                tech: ["Expo", "HealthKit", "Redux Toolkit", "Chart.js"],
+                gradient: "from-green-500 to-emerald-500",
+                icon: "💪"
               },
               {
                 title: "Social Media Platform",
-                description: "Real-time chat and media sharing with push notifications",
-                tech: ["React Native", "Socket.io", "AWS S3"]
+                description: "Real-time chat and media sharing with push notifications and advanced privacy controls",
+                tech: ["React Native", "Socket.io", "AWS S3", "WebRTC"],
+                gradient: "from-purple-500 to-pink-500",
+                icon: "💬"
               }
             ].map((project, index) => (
               <div 
                 key={index}
-                className="group bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="group bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-slate-200/50 dark:border-slate-700/50"
               >
-                <div className="h-48 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-xl mb-6 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg"></div>
+                <div className={`h-48 bg-gradient-to-br ${project.gradient} rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300`}>
+                  <div className="text-6xl">{project.icon}</div>
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech) => (
                     <span 
                       key={tech}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400"
+                      className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <Button variant="ghost" className="w-full group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20">
-                  View App <ExternalLink className="ml-2 h-4 w-4" />
+                <Button variant="ghost" className="w-full group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 font-semibold">
+                  View Details <ExternalLink className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                 </Button>
               </div>
             ))}
@@ -194,50 +305,65 @@ const Index = () => {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 px-6">
+      <section id="blog" className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-              Blog
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900 dark:text-white">
+              Latest Insights
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+              Sharing knowledge and best practices in mobile development
+            </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 title: "React Native Performance Optimization",
-                excerpt: "Best practices for building fast and efficient mobile apps",
+                excerpt: "Deep dive into advanced techniques for building lightning-fast mobile apps with optimal user experience",
                 date: "March 15, 2024",
-                readTime: "8 min read"
+                readTime: "8 min read",
+                category: "Performance"
               },
               {
-                title: "Navigation in React Native Apps",
-                excerpt: "Complete guide to React Navigation v6 patterns and best practices",
+                title: "Navigation Patterns in React Native",
+                excerpt: "Complete guide to React Navigation v6 patterns, best practices, and advanced routing strategies",
                 date: "March 10, 2024",
-                readTime: "6 min read"
+                readTime: "6 min read",
+                category: "Navigation"
               },
               {
                 title: "State Management with Zustand",
-                excerpt: "Lightweight state management solution for React Native apps",
+                excerpt: "Lightweight yet powerful state management solution for React Native apps with practical examples",
                 date: "March 5, 2024",
-                readTime: "5 min read"
+                readTime: "5 min read",
+                category: "State Management"
               }
             ].map((post, index) => (
               <article 
                 key={index}
-                className="group bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                className="group bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200/50 dark:border-slate-700/50"
               >
-                <div className="h-32 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-xl mb-6"></div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <div className="h-32 bg-gradient-to-br from-blue-100 via-purple-100 to-teal-100 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-teal-900/30 rounded-2xl mb-6 relative overflow-hidden">
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-white/80 dark:bg-slate-800/80 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400">
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                   {post.excerpt}
                 </p>
-                <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-                  <span>{post.date}</span>
-                  <span>{post.readTime}</span>
+                <div className="flex justify-between items-center text-sm text-slate-500 dark:text-slate-400">
+                  <span className="font-medium">{post.date}</span>
+                  <span className="flex items-center">
+                    <Award className="h-4 w-4 mr-1" />
+                    {post.readTime}
+                  </span>
                 </div>
               </article>
             ))}
@@ -246,48 +372,64 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+      <section id="contact" className="py-24 px-6 bg-gradient-to-br from-slate-50/50 to-blue-50/50 dark:from-slate-800/30 dark:to-indigo-900/30">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-            Let's Build Something Amazing
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900 dark:text-white">
+            Let's Create Something
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Amazing Together</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-8"></div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-            Have a mobile app idea? I'd love to help bring it to life with React Native. 
-            Let's create something users will love on both iOS and Android.
+          <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-8"></div>
+          <p className="text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
+            Have a mobile app idea that could change the world? I'd love to help bring it to life with 
+            cutting-edge React Native development. Let's build something users will love.
           </p>
           
           <div className="flex justify-center space-x-6 mb-12">
             {[
-              { icon: Mail, href: 'mailto:dev@example.com', label: 'Email' },
-              { icon: Github, href: 'https://github.com/reactnativedev', label: 'GitHub' },
-              { icon: Linkedin, href: 'https://linkedin.com/in/reactnativedev', label: 'LinkedIn' }
-            ].map(({ icon: Icon, href, label }) => (
+              { icon: Mail, href: 'mailto:dev@example.com', label: 'Email', color: 'from-blue-500 to-cyan-500' },
+              { icon: Github, href: 'https://github.com/reactnativedev', label: 'GitHub', color: 'from-slate-600 to-slate-800' },
+              { icon: Linkedin, href: 'https://linkedin.com/in/reactnativedev', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' }
+            ].map(({ icon: Icon, href, label, color }) => (
               <a
                 key={label}
                 href={href}
-                className="group p-4 bg-white dark:bg-gray-900 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className={`group p-6 bg-gradient-to-br ${color} rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-110`}
                 aria-label={label}
               >
-                <Icon className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                <Icon className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
               </a>
             ))}
           </div>
           
           <Button 
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl text-lg font-semibold"
           >
-            Start a Mobile Project
+            <Zap className="mr-2 h-5 w-5" />
+            Start Your Mobile Project
           </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-gray-200 dark:border-gray-700">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-600 dark:text-gray-400">
-            © 2024 React Native Developer. Built with React and Tailwind CSS.
-          </p>
+      <footer className="py-12 px-6 border-t border-slate-200/50 dark:border-slate-700/50 bg-white/30 dark:bg-slate-900/30 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center">
+            <div className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent mb-4">
+              ReactNativeDev
+            </div>
+            <p className="text-slate-600 dark:text-slate-400 mb-4">
+              © 2024 React Native Developer. Crafted with passion using React and Tailwind CSS.
+            </p>
+            <div className="flex justify-center space-x-6">
+              <a href="#" className="text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Terms of Service
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
