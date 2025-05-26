@@ -65,21 +65,21 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-              Alex Johnson
+              React Native Developer
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Creative Developer & Designer
+              Mobile App Developer & Cross-Platform Expert
             </p>
             <p className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-              I craft beautiful digital experiences with clean code and thoughtful design. 
-              Passionate about creating solutions that make a difference.
+              I build high-performance mobile applications with React Native, creating seamless 
+              experiences across iOS and Android platforms with clean, maintainable code.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={() => scrollToSection('projects')}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
               >
-                View My Work
+                View My Apps
               </Button>
               <Button 
                 variant="outline" 
@@ -106,15 +106,17 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                With over 5 years of experience in web development and design, I specialize in 
-                creating modern, accessible, and performant applications that users love.
+                With over 4 years of experience in React Native development, I specialize in 
+                creating cross-platform mobile applications that deliver native performance 
+                and exceptional user experiences.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                My journey began with curiosity about how things work on the web, and has 
-                evolved into a passion for crafting digital experiences that solve real problems.
+                My journey in mobile development started with native iOS and Android, but I found 
+                my passion in React Native's ability to bridge the gap between platforms while 
+                maintaining code efficiency and rapid development cycles.
               </p>
               <div className="flex flex-wrap gap-3">
-                {['React', 'TypeScript', 'Node.js', 'Python', 'Design', 'UI/UX'].map((skill) => (
+                {['React Native', 'TypeScript', 'Expo', 'Firebase', 'Redux', 'Native Modules'].map((skill) => (
                   <span 
                     key={skill}
                     className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -136,7 +138,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-              Projects
+              Mobile Apps
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
@@ -144,19 +146,19 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "E-Commerce Platform",
-                description: "Modern shopping experience with React and Stripe integration",
-                tech: ["React", "Node.js", "MongoDB"]
+                title: "E-Commerce Mobile App",
+                description: "Cross-platform shopping app with secure payments and real-time inventory",
+                tech: ["React Native", "Stripe", "Firebase"]
               },
               {
-                title: "Task Management App",
-                description: "Collaborative workspace for teams with real-time updates",
-                tech: ["TypeScript", "Socket.io", "PostgreSQL"]
+                title: "Fitness Tracking App",
+                description: "Health monitoring app with workout plans and progress tracking",
+                tech: ["Expo", "HealthKit", "Redux Toolkit"]
               },
               {
-                title: "Portfolio Website",
-                description: "Responsive portfolio with smooth animations and dark mode",
-                tech: ["React", "Tailwind", "Framer Motion"]
+                title: "Social Media Platform",
+                description: "Real-time chat and media sharing with push notifications",
+                tech: ["React Native", "Socket.io", "AWS S3"]
               }
             ].map((project, index) => (
               <div 
@@ -183,7 +185,7 @@ const Index = () => {
                   ))}
                 </div>
                 <Button variant="ghost" className="w-full group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20">
-                  View Project <ExternalLink className="ml-2 h-4 w-4" />
+                  View App <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             ))}
@@ -204,22 +206,22 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Building Modern React Applications",
-                excerpt: "Best practices for scalable React development in 2024",
+                title: "React Native Performance Optimization",
+                excerpt: "Best practices for building fast and efficient mobile apps",
                 date: "March 15, 2024",
-                readTime: "5 min read"
+                readTime: "8 min read"
               },
               {
-                title: "The Art of Minimalist Design",
-                excerpt: "How less can be more in user interface design",
+                title: "Navigation in React Native Apps",
+                excerpt: "Complete guide to React Navigation v6 patterns and best practices",
                 date: "March 10, 2024",
-                readTime: "7 min read"
+                readTime: "6 min read"
               },
               {
-                title: "TypeScript Tips and Tricks",
-                excerpt: "Advanced TypeScript patterns for better code quality",
+                title: "State Management with Zustand",
+                excerpt: "Lightweight state management solution for React Native apps",
                 date: "March 5, 2024",
-                readTime: "6 min read"
+                readTime: "5 min read"
               }
             ].map((post, index) => (
               <article 
@@ -247,18 +249,19 @@ const Index = () => {
       <section id="contact" className="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-            Let's Work Together
+            Let's Build Something Amazing
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-8"></div>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-            Have a project in mind? I'd love to hear about it. Let's create something amazing together.
+            Have a mobile app idea? I'd love to help bring it to life with React Native. 
+            Let's create something users will love on both iOS and Android.
           </p>
           
           <div className="flex justify-center space-x-6 mb-12">
             {[
-              { icon: Mail, href: 'mailto:alex@example.com', label: 'Email' },
-              { icon: Github, href: 'https://github.com/alexjohnson', label: 'GitHub' },
-              { icon: Linkedin, href: 'https://linkedin.com/in/alexjohnson', label: 'LinkedIn' }
+              { icon: Mail, href: 'mailto:dev@example.com', label: 'Email' },
+              { icon: Github, href: 'https://github.com/reactnativedev', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://linkedin.com/in/reactnativedev', label: 'LinkedIn' }
             ].map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -274,7 +277,7 @@ const Index = () => {
           <Button 
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
           >
-            Start a Project
+            Start a Mobile Project
           </Button>
         </div>
       </section>
@@ -283,7 +286,7 @@ const Index = () => {
       <footer className="py-8 px-6 border-t border-gray-200 dark:border-gray-700">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-600 dark:text-gray-400">
-            © 2024 Alex Johnson. Built with React and Tailwind CSS.
+            © 2024 React Native Developer. Built with React and Tailwind CSS.
           </p>
         </div>
       </footer>
