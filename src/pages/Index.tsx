@@ -53,7 +53,7 @@ const Index = () => {
       }`}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-            ReactNativeDev
+            Talha Akbar
           </div>
           
           <div className="hidden md:flex space-x-8">
@@ -102,13 +102,13 @@ const Index = () => {
             </div>
 
             <h1 className="text-6xl md:text-8xl font-extrabold mb-8 bg-gradient-to-r from-slate-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent leading-tight">
-              React Native
+              Talha Akbar
               <br />
-              <span className="bg-gradient-to-r from-purple-600 to-teal-600 bg-clip-text text-transparent">Developer</span>
+              <span className="bg-gradient-to-r from-purple-600 to-teal-600 bg-clip-text text-transparent">React Native Developer</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-medium">
-              Crafting exceptional mobile experiences with modern cross-platform technology
+              Crafting exceptional mobile experiences with 4 years of React Native expertise
             </p>
             
             <p className="text-lg text-slate-500 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -176,7 +176,7 @@ const Index = () => {
             <div className="space-y-8">
               <div className="space-y-6">
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                  With over 4 years of experience in React Native development, I specialize in 
+                  With 4 years of dedicated experience in React Native development, I specialize in 
                   creating cross-platform mobile applications that deliver native performance 
                   and exceptional user experiences.
                 </p>
@@ -381,15 +381,15 @@ const Index = () => {
           </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-8"></div>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
-            Have a mobile app idea that could change the world? I'd love to help bring it to life with 
-            cutting-edge React Native development. Let's build something users will love.
+            Have a mobile app idea that could change the world? With 4 years of React Native expertise, 
+            I'd love to help bring it to life. Let's build something users will love.
           </p>
           
           <div className="flex justify-center space-x-6 mb-12">
             {[
-              { icon: Mail, href: 'mailto:dev@example.com', label: 'Email', color: 'from-blue-500 to-cyan-500' },
-              { icon: Github, href: 'https://github.com/reactnativedev', label: 'GitHub', color: 'from-slate-600 to-slate-800' },
-              { icon: Linkedin, href: 'https://linkedin.com/in/reactnativedev', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' }
+              { icon: Mail, href: 'mailto:talha@example.com', label: 'Email', color: 'from-blue-500 to-cyan-500' },
+              { icon: Github, href: 'https://github.com/talhaakbar', label: 'GitHub', color: 'from-slate-600 to-slate-800' },
+              { icon: Linkedin, href: 'https://linkedin.com/in/talhaakbar', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' }
             ].map(({ icon: Icon, href, label, color }) => (
               <a
                 key={label}
@@ -416,10 +416,10 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <div className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent mb-4">
-              ReactNativeDev
+              Talha Akbar
             </div>
             <p className="text-slate-600 dark:text-slate-400 mb-4">
-              © 2024 React Native Developer. Crafted with passion using React and Tailwind CSS.
+              © 2024 Talha Akbar. React Native Developer with 4 years of experience. Crafted with passion using React and Tailwind CSS.
             </p>
             <div className="flex justify-center space-x-6">
               <a href="#" className="text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
