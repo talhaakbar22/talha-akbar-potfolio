@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import {
   Moon,
   Sun,
-  Github,
-  Linkedin,
   Mail,
   ExternalLink,
   Code,
@@ -276,6 +274,8 @@ const Index = () => {
                     "GraphQL",
                     "Jest",
                     "React Query",
+                    "Swift",
+                    "Xcode",
                   ].map((skill) => (
                     <span
                       key={skill}
@@ -324,9 +324,21 @@ const Index = () => {
               {
                 title: "Centropix",
                 description:
-                  "Real-time chat and media sharing with push notifications and advanced privacy controls",
-                tech: ["React Native", "Socket.io", "AWS S3", "WebRTC"],
-                gradient: "from-purple-500 to-pink-500",
+                  "The world’s first wireless, App-Driven PEMA applicators and Frequency wearable are taking you to a whole new level of selfcare.",
+                tech: [
+                  "IOS",
+                  "Swift",
+                  "Push Notification",
+                  "Firebase",
+                  "Alamofire",
+                  "Kingfisher",
+                  "CocoaPods",
+                  "Animations",
+                  "RESTAPIs",
+                  "CoreBluetooth",
+                  "CrashReporting",
+                ],
+                gradient: "from-black-500 to-pink-500",
                 image: "/src/assets/centropix.png", // Replace with your image path
                 iosUrl: "https://apps.apple.com/app/YOUR_IOS_APP_ID",
                 androidUrl:
@@ -337,9 +349,22 @@ const Index = () => {
               {
                 title: "My Clique",
                 description:
-                  "Real-time chat and media sharing with push notifications and advanced privacy controls",
-                tech: ["React Native", "Socket.io", "AWS S3", "WebRTC"],
-                gradient: "from-purple-500 to-pink-500",
+                  "MyClique is a place to build lasting friendships and create memories that will last a lifetime.",
+                tech: [
+                  "Expo",
+                  "TypeScript",
+                  "Push Notifications",
+                  "Redux Toolkit",
+                  "React Native Web",
+                  "Google Places Autocomplete",
+                  "FastImage",
+                  "Redis",
+                  "GraphQL",
+                  "Apollo",
+                  "CI/CD",
+                  "Formik + Yup",
+                ],
+                gradient: "from-red-500 to-pink-500",
                 image: "/src/assets/myClique.png", // Replace with your image path
                 iosUrl: "https://apps.apple.com/app/YOUR_IOS_APP_ID",
                 androidUrl:
@@ -349,9 +374,15 @@ const Index = () => {
               {
                 title: "Carvonix",
                 description:
-                  "Full-featured shopping app with secure payments, real-time inventory, and personalized recommendations",
-                tech: ["React Native", "Stripe", "Firebase", "Redux"],
-                gradient: "from-blue-500 to-cyan-500",
+                  "Carvonix is the ultimate automotive enthusiast social platform, designed to fuel your passion and connect you with car lovers from all around the globe.",
+                tech: [
+                  "React Native",
+                  "Stripe",
+                  "Firebase",
+                  "Redux",
+                  "Socket.io",
+                ],
+                gradient: "from-black-500 to-cyan-500",
                 image: "/src/assets/carvonix.png", // Replace with your image path
                 iosUrl: "https://apps.apple.com/app/YOUR_IOS_APP_ID",
                 androidUrl:
@@ -361,8 +392,22 @@ const Index = () => {
               {
                 title: "RTE",
                 description:
-                  "Comprehensive health monitoring with workout plans, progress tracking, and social features",
-                tech: ["Expo", "HealthKit", "Redux Toolkit", "Chart.js"],
+                  "Run the Edge Community motivates people to achieve a healthy lifestyle and set goals to reach their personal best every day, all year long.",
+                tech: [
+                  "React Native CLI",
+                  "React Native Map",
+                  "Redux Toolkit",
+                  "React Native Paper",
+                  "Formik + Yup",
+                  "Chart Kit",
+                  "Pie Chart",
+                  "Zustand",
+                  "TypeScript",
+                  "Moment.js",
+                  "RTK Query",
+                  "HealthKit",
+                  "Vimeo",
+                ],
                 gradient: "from-green-500 to-emerald-500",
                 image: "/src/assets/runtheedge.png", // Replace with your image path
                 iosUrl: "https://apps.apple.com/app/YOUR_IOS_APP_ID",
@@ -513,65 +558,33 @@ const Index = () => {
             React Native expertise, I'd love to help bring it to life. Let's
             build something users will love.
           </p>
-
-          {/* <div className="flex justify-center space-x-6 mb-12">
-            {[
-              {
-                icon: Mail,
-                href: "mailto:talha.akbar366@gmail.com",
-                label: "Email",
-                color: "from-blue-500 to-cyan-500",
-              },
-              {
-                icon: Github,
-                href: "https://github.com/talhaakbar22",
-                label: "GitHub",
-                color: "from-slate-600 to-slate-800",
-              },
-              {
-                icon: Linkedin,
-                href: "https://linkedin.com/in/talhaakbar",
-                label: "LinkedIn",
-                color: "from-blue-600 to-blue-800",
-              },
-            ].map(({ icon: Icon, href, label, color }) => (
-              <a
-                key={label}
-                href={href}
-                className={`group p-6 bg-gradient-to-br ${color} rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-110`}
-                aria-label={label}
-              >
-                <Icon className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
-              </a>
-            ))}
-          </div> */}
           <div className="flex justify-center space-x-6 mb-12">
             {[
               {
-                image: "/images/mail-icon.png", // Path to your email icon image
+                image: "/src/assets/mail.png", // Path to your email icon image
                 href: "mailto:talha.akbar366@gmail.com",
                 label: "Email",
                 color: "from-blue-500 to-cyan-500",
               },
               {
-                image: "/images/github-icon.png",
+                image: "/src/assets/github.png",
                 href: "https://github.com/talhaakbar22",
                 label: "GitHub",
                 color: "from-slate-600 to-slate-800",
               },
               {
-                image: "/images/linkedin-icon.png",
+                image: "/src/assets/linkedIn.png",
                 href: "https://linkedin.com/in/talhaakbar",
                 label: "LinkedIn",
                 color: "from-blue-600 to-blue-800",
               },
               {
-                image: "/images/whatsapp-icon.png",
+                image: "/src/assets/whatsapp.png",
                 href: "https://wa.me/923214964987?text=Hello! I want to discuss starting a mobile project.",
                 color: "from-green-500 to-green-600",
               },
               {
-                image: "/images/stackoverflow-icon.png",
+                image: "/src/assets/stackoverflow.png",
                 href: "https://stackoverflow.com/users/YOUR_USER_ID", // Replace with your Stack Overflow profile
                 label: "Stack Overflow",
                 color: "from-orange-500 to-orange-700",
@@ -580,7 +593,7 @@ const Index = () => {
               <a
                 key={label}
                 href={href}
-                className={`group p-6 bg-gradient-to-br ${color} rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-110`}
+                className={`group p-5 bg-gradient-to-br ${color} rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-110`}
                 aria-label={label}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -588,7 +601,7 @@ const Index = () => {
                 <img
                   src={image}
                   alt={label}
-                  className="h-6 w-6 object-contain filter brightness-0 invert group-hover:scale-110 transition-transform"
+                  className="h-9 w-9 object-contain filter brightness-0 invert group-hover:scale-110 transition-transform"
                 />
               </a>
             ))}
