@@ -487,53 +487,58 @@ const Index = () => {
               {
                 title: "React Native Performance Optimization",
                 excerpt:
-                  "Deep dive into advanced techniques for building lightning-fast mobile apps with optimal user experience",
-                date: "March 15, 2024",
-                readTime: "8 min read",
+                  "Explore advanced methods for building lightning-fast React Native apps with smooth performance and great UX.",
+                date: "August 8, 2025",
+                readTime: "9 min read",
                 category: "Performance",
+                url: "https://medium.com/@talha.akbar366/react-native-performance-optimization-4dab54891a85",
               },
               {
-                title: "Navigation Patterns in React Native",
+                title: "Mastering Video Animations in React Native",
                 excerpt:
-                  "Complete guide to React Navigation v6 patterns, best practices, and advanced routing strategies",
-                date: "March 10, 2024",
-                readTime: "6 min read",
-                category: "Navigation",
+                  "Learn to create smooth video animations in React Native with optimal performance and seamless gestures.",
+                date: "July 2, 2025",
+                readTime: "11 min read",
+                category: "Animation",
+                url: "https://medium.com/@talha.akbar366/mastering-video-animations-in-react-native-60b5a558e918",
               },
               {
-                title: "State Management with Zustand",
+                title: "Mastering React Native’s New Architecture",
                 excerpt:
-                  "Lightweight yet powerful state management solution for React Native apps with practical examples",
-                date: "March 5, 2024",
-                readTime: "5 min read",
-                category: "State Management",
+                  "Understand why React Native’s New Architecture changes the game, offering faster apps and cleaner codebases.",
+                date: "June 26, 2025",
+                readTime: "2 min read",
+                category: "New Architecture",
+                url: "https://medium.com/@talha.akbar366/mastering-react-natives-new-architecture-fabric-turbomodules-strict-typescript-api-2025-e902db77b8f2",
               },
             ].map((post, index) => (
-              <article
-                key={index}
-                className="group bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200/50 dark:border-slate-700/50"
-              >
-                <div className="h-32 bg-gradient-to-br from-blue-100 via-purple-100 to-teal-100 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-teal-900/30 rounded-2xl mb-6 relative overflow-hidden">
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/80 dark:bg-slate-800/80 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400">
-                      {post.category}
+              <a href={post?.url} target="_blank" rel="noopener noreferrer">
+                <article
+                  key={index}
+                  className="group bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200/50 dark:border-slate-700/50"
+                >
+                  <div className="h-32 bg-gradient-to-br from-blue-100 via-purple-100 to-teal-100 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-teal-900/30 rounded-2xl mb-6 relative overflow-hidden">
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-white/80 dark:bg-slate-800/80 rounded-full text-xs font-medium text-slate-600 dark:text-slate-400">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
+                    {post.title}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex justify-between items-center text-sm text-slate-500 dark:text-slate-400">
+                    <span className="font-medium">{post.date}</span>
+                    <span className="flex items-center">
+                      <Award className="h-4 w-4 mr-1" />
+                      {post.readTime}
                     </span>
                   </div>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
-                  {post.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
-                  {post.excerpt}
-                </p>
-                <div className="flex justify-between items-center text-sm text-slate-500 dark:text-slate-400">
-                  <span className="font-medium">{post.date}</span>
-                  <span className="flex items-center">
-                    <Award className="h-4 w-4 mr-1" />
-                    {post.readTime}
-                  </span>
-                </div>
-              </article>
+                </article>
+              </a>
             ))}
           </div>
         </div>
