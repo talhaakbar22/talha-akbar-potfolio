@@ -339,7 +339,7 @@ const Index = () => {
                   "CrashReporting",
                 ],
                 gradient: "from-black-500 to-pink-500",
-                image: "/src/assets/centropix.png", // Replace with your image path
+                image: "/assets/centropix.png", // Replace with your image path
                 iosUrl: "https://apps.apple.com/app/YOUR_IOS_APP_ID",
                 androidUrl:
                   "https://play.google.com/store/apps/details?id=YOUR_ANDROID_PACKAGE",
@@ -365,7 +365,7 @@ const Index = () => {
                   "Formik + Yup",
                 ],
                 gradient: "from-red-500 to-pink-500",
-                image: "/src/assets/myClique.png", // Replace with your image path
+                image: "/assets/myClique.png", // Replace with your image path
                 iosUrl: "https://apps.apple.com/app/YOUR_IOS_APP_ID",
                 androidUrl:
                   "https://play.google.com/store/apps/details?id=YOUR_ANDROID_PACKAGE",
@@ -383,7 +383,7 @@ const Index = () => {
                   "Socket.io",
                 ],
                 gradient: "from-black-500 to-cyan-500",
-                image: "/src/assets/carvonix.png", // Replace with your image path
+                image: "/assets/carvonix.png", // Replace with your image path
                 iosUrl: "https://apps.apple.com/app/YOUR_IOS_APP_ID",
                 androidUrl:
                   "https://play.google.com/store/apps/details?id=com.carvonixllc.carvonix",
@@ -409,7 +409,7 @@ const Index = () => {
                   "Vimeo",
                 ],
                 gradient: "from-green-500 to-emerald-500",
-                image: "/src/assets/runtheedge.png", // Replace with your image path
+                image: "/assets/runtheedge.png", // Replace with your image path
                 iosUrl: "https://apps.apple.com/app/YOUR_IOS_APP_ID",
                 androidUrl:
                   "https://play.google.com/store/apps/details?id=YOUR_ANDROID_PACKAGE",
@@ -566,30 +566,30 @@ const Index = () => {
           <div className="flex justify-center space-x-6 mb-12">
             {[
               {
-                image: "../assets/mail.png", // Path to your email icon image
+                image: "/assets/mail.png", // Path to your email icon image
                 href: "mailto:talha.akbar366@gmail.com",
                 label: "Email",
                 color: "from-blue-500 to-cyan-500",
               },
               {
-                image: "./src/assets/github.png",
+                image: "/assets/github.png",
                 href: "https://github.com/talhaakbar22",
                 label: "GitHub",
                 color: "from-slate-600 to-slate-800",
               },
               {
-                image: "./src/assets/linkedIn.png",
+                image: "/assets/linkedIn.png",
                 href: "https://linkedin.com/in/talhaakbar",
                 label: "LinkedIn",
                 color: "from-blue-600 to-blue-800",
               },
               {
-                image: "./src/assets/whatsapp.png",
+                image: "/assets/whatsapp.png",
                 href: "https://wa.me/923214964987?text=Hello! I want to discuss starting a mobile project.",
                 color: "from-green-500 to-green-600",
               },
               {
-                image: "./src/assets/stackoverflow.png",
+                image: "/assets/stackoverflow.png",
                 href: "https://stackoverflow.com/users/YOUR_USER_ID", // Replace with your Stack Overflow profile
                 label: "Stack Overflow",
                 color: "from-orange-500 to-orange-700",
