@@ -494,7 +494,7 @@ const Index = () => {
                 url: "https://medium.com/@talha.akbar366/react-native-performance-optimization-4dab54891a85",
               },
               {
-                title: "Mastering Video Animations in React Native",
+                title: "Mastering Video Animations in React Native.",
                 excerpt:
                   "Learn to create smooth video animations in React Native with optimal performance and seamless gestures.",
                 date: "July 2, 2025",
