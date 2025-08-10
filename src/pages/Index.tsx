@@ -566,7 +566,7 @@ const Index = () => {
           <div className="flex justify-center space-x-6 mb-12">
             {[
               {
-                image: "./src/assets/mail.png", // Path to your email icon image
+                image: "../assets/mail.png", // Path to your email icon image
                 href: "mailto:talha.akbar366@gmail.com",
                 label: "Email",
                 color: "from-blue-500 to-cyan-500",
