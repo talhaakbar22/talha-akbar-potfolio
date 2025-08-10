@@ -566,30 +566,30 @@ const Index = () => {
           <div className="flex justify-center space-x-6 mb-12">
             {[
               {
-                image: "/src/assets/mail.png", // Path to your email icon image
+                image: "./src/assets/mail.png", // Path to your email icon image
                 href: "mailto:talha.akbar366@gmail.com",
                 label: "Email",
                 color: "from-blue-500 to-cyan-500",
               },
               {
-                image: "/src/assets/github.png",
+                image: "./src/assets/github.png",
                 href: "https://github.com/talhaakbar22",
                 label: "GitHub",
                 color: "from-slate-600 to-slate-800",
               },
               {
-                image: "/src/assets/linkedIn.png",
+                image: "./src/assets/linkedIn.png",
                 href: "https://linkedin.com/in/talhaakbar",
                 label: "LinkedIn",
                 color: "from-blue-600 to-blue-800",
               },
               {
-                image: "/src/assets/whatsapp.png",
+                image: "./src/assets/whatsapp.png",
                 href: "https://wa.me/923214964987?text=Hello! I want to discuss starting a mobile project.",
                 color: "from-green-500 to-green-600",
               },
               {
-                image: "/src/assets/stackoverflow.png",
+                image: "./src/assets/stackoverflow.png",
                 href: "https://stackoverflow.com/users/YOUR_USER_ID", // Replace with your Stack Overflow profile
                 label: "Stack Overflow",
                 color: "from-orange-500 to-orange-700",
