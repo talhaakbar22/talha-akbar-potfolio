@@ -276,6 +276,7 @@ const Index = () => {
                     "React Query",
                     "Swift",
                     "Xcode",
+                    "Maps",
                   ].map((skill) => (
                     <span
                       key={skill}
